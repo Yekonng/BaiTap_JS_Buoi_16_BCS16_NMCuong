@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài tập JavaScript Buổi 16</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <div class="max-w-4xl mx-auto px-4 py-8">
+      <!-- Thông tin học viên -->
+      <div class="bg-white rounded-2xl shadow p-6 mb-6">
+        <h1 class="text-2xl font-bold mb-2">Bài tập JavaScript - Buổi 16</h1>
+        <p><strong>Họ tên:</strong> Nguyễn Mạnh Cường</p>
+        <p><strong>Lớp:</strong> BCS 16</p>
+      </div>
+
+      <!-- Nhập số -->
+      <div class="bg-white rounded-2xl shadow p-6 mb-6">
+        <h2 class="text-xl font-semibold mb-4">Nhập số</h2>
+        <div class="flex flex-col sm:flex-row items-center gap-4 mb-2">
+          <input type="number" id="inputNumber" placeholder="Nhập số n" class="w-full sm:w-auto px-4 py-2 border rounded-xl" />
+          <button id="btnThemSo" class="bg-blue-600 text-white px-6 py-2 rounded-xl hover:bg-blue-700 transition">Thêm số</button>
+        </div>
+        <p id="daySo" class="text-sm text-gray-600 mt-2 italic">Dãy số đã nhập: </p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="bg-white rounded-2xl shadow p-6">
+        <div class="flex flex-wrap gap-2 mb-6">
+          <button class="tab-btn bg-gray-200 px-4 py-2 rounded-xl hover:bg-blue-600 hover:text-white transition active" data-tab="tab1">1. Tổng dương</button>
+          <button class="tab-btn bg-gray-200 px-4 py-2 rounded-xl hover:bg-blue-600 hover:text-white transition" data-tab="tab2">2. Đếm dương</button>
+          <button class="tab-btn bg-gray-200 px-4 py-2 rounded-xl hover:bg-blue-600 hover:text-white transition" data-tab="tab3">3. Nhỏ nhất</button>
+          <button class="tab-btn bg-gray-200 px-4 py-2 rounded-xl hover:bg-blue-600 hover:text-white transition" data-tab="tab4">4. Dương nhỏ</button>
+          <button class="tab-btn bg-gray-200 px-4 py-2 rounded-xl hover:bg-blue-600 hover:text-white transition" data-tab="tab5">5. Chẵn cuối</button>
+          <button class="tab-btn bg-gray-200 px-4 py-2 rounded-xl hover:bg-blue-600 hover:text-white transition" data-tab="tab6">6. Đổi chỗ</button>
+          <button class="tab-btn bg-gray-200 px-4 py-2 rounded-xl hover:bg-blue-600 hover:text-white transition" data-tab="tab7">7. Sắp xếp</button>
+          <button class="tab-btn bg-gray-200 px-4 py-2 rounded-xl hover:bg-blue-600 hover:text-white transition" data-tab="tab8">8. SNT đầu</button>
+          <button class="tab-btn bg-gray-200 px-4 py-2 rounded-xl hover:bg-blue-600 hover:text-white transition" data-tab="tab9">9. Đếm nguyên</button>
+          <button class="tab-btn bg-gray-200 px-4 py-2 rounded-xl hover:bg-blue-600 hover:text-white transition" data-tab="tab10">10. So sánh</button>
+        </div>
+
+        <!-- Các tab nội dung -->
+        <div class="tab-content space-y-4" id="tab1">
+          <h3 class="text-lg font-semibold">1. Tổng số dương</h3>
+          <button id="btnTongSoDuong" class="bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700 transition">Tính tổng</button>
+          <div id="res1" class="text-gray-700 font-medium"><p>Kết quả hiển thị ở đây</p></div>
+        </div>
+
+        <div class="tab-content hidden" id="tab2">
+          <h3 class="text-lg font-semibold">2. Đếm số dương</h3>
+          <button id="btnDemSoDuong" class="bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700 transition">Đếm số</button>
+          <div id="res2" class="text-gray-700 font-medium"><p>Kết quả hiển thị ở đây</p></div>
+        </div>
+
+        <div class="tab-content hidden" id="tab3">
+          <h3 class="text-lg font-semibold">3. Tìm số nhỏ nhất</h3>
+          <button id="btnTimSoNhoNhat" class="bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700 transition">Tìm số nhỏ nhất</button>
+          <div id="res3" class="text-gray-700 font-medium"><p>Kết quả hiển thị ở đây</p></div>
+        </div>
+
+        <div class="tab-content hidden" id="tab4">
+          <h3 class="text-lg font-semibold">4. Tìm số dương nhỏ nhất</h3>
+          <button id="btnTimSoDuongNhoNhat" class="bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700 transition">Tìm số dương nhỏ nhất</button>
+          <div id="res4" class="text-gray-700 font-medium"><p>Kết quả hiển thị ở đây</p></div>
+        </div>
+
+        <div class="tab-content hidden" id="tab5">
+          <h3 class="text-lg font-semibold">5. Tìm số chẵn cuối cùng</h3>
+          <button id="btnTimSoChanCuoi" class="bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700 transition">Tìm số chẵn</button>
+          <div id="res5" class="text-gray-700 font-medium"><p>Kết quả hiển thị ở đây</p></div>
+        </div>
+
+        <div class="tab-content hidden" id="tab6">
+          <h3 class="text-lg font-semibold">6. Đổi chỗ</h3>
+          <div class="flex flex-col sm:flex-row gap-4 mb-2">
+            <input id="viTri1" type="number" placeholder="Nhập vị trí số 1" class="px-4 py-2 border rounded-xl" />
+            <input id="viTri2" type="number" placeholder="Nhập vị trí số 2" class="px-4 py-2 border rounded-xl" />
+          </div>
+          <button id="btnDoiCho" class="bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700 transition">Đổi chỗ</button>
+          <div id="res6" class="text-gray-700 font-medium mt-2"></div>
+        </div>
+
+        <div class="tab-content hidden" id="tab7">
+          <h3 class="text-lg font-semibold">7. Sắp xếp tăng dần</h3>
+          <button id="btnSapXepTangDan" class="bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700 transition">Sắp xếp</button>
+          <div id="res7" class="text-gray-700 font-medium"></div>
+        </div>
+
+        <div class="tab-content hidden" id="tab8">
+          <h3 class="text-lg font-semibold">8. Số nguyên tố đầu tiên</h3>
+          <button id="btnSoNguyenTo" class="bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700 transition">Tìm số nguyên tố</button>
+          <div id="res8" class="text-gray-700 font-medium"></div>
+        </div>
+
+        <div class="tab-content hidden" id="tab9">
+          <h3 class="text-lg font-semibold">9. Đếm số nguyên</h3>
+          <div class="flex flex-col sm:flex-row gap-4 mb-2">
+            <input type="number" id="inputNguyen" placeholder="Nhập số" class="px-4 py-2 border rounded-xl" />
+            <button id="btnThemSoBai9" class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition">Thêm số</button>
+          </div>
+          <div id="dsNguyen" class="text-sm italic text-gray-600">Danh sách số nguyên: </div>
+          <button id="btnDemSoNguyen" class="mt-2 bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700 transition">Đếm số nguyên</button>
+          <div id="res9" class="text-gray-700 font-medium mt-2"></div>
+        </div>
+
+        <div class="tab-content hidden" id="tab10">
+          <h3 class="text-lg font-semibold">10. So sánh số âm và số dương</h3>
+          <button id="btnSoSanh" class="bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700 transition">So sánh</button>
+          <div id="res10" class="text-gray-700 font-medium mt-2"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach((b) => b.classList.remove('active', 'bg-blue-600', 'text-white'));
+          btn.classList.add('active', 'bg-blue-600', 'text-white');
+
+          const tab = btn.getAttribute('data-tab');
+          tabContents.forEach((c) => c.classList.add('hidden'));
+          document.getElementById(tab).classList.remove('hidden');
+        });
+      });
+    </script>
+
+     <script type="module" src="./index.js"></script>
+  </body>
+</html>
